@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
+     private final float GRAVITY = 0.0667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    
     /**
      * Constructor for objects of class BrickWorld.
      * 
@@ -19,6 +22,11 @@ public class Level1 extends World
         prepare();
     }
     
+    public void act()
+    {
+        spawn();
+    }   
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -29,8 +37,31 @@ public class Level1 extends World
               Door.class, HUD.class);
               
         Door door = new Door();
-        addObject(door,706,54);
+        addObject(door,1171,44);
         Player player = new Player();
         addObject(player,46,578);
+        addObject(new Floor(), 600, 800);
+        addObject(new BrickWall(), 300, 500);
+        addObject(new BrickWall(), 700, 300);
+        addObject(new BrickWall(), 960, 100);
+        addObject(new SmBrickWall(), 1120, 600);
+        addObject(new SmBrickWall(), 880, 600);
+        addObject(new SmBrickWall(), 420, 160);
+        addObject(new SmBrickWall(), 1000, 200);
+        addObject(new SmBrickWall(), 220, 280);
+        addObject(new TrapDoor(), 60, 400);
+        addObject(new TrapDoor(), 1000, 600);
+        addObject(new Bomb(GRAVITY), 1050, 765);
+        addObject(new Gem(), 975, 160);
+        addObject(new Gem(), 1030, 160);
+    }
+    
+         private void spawn()
+    {
+        if(Math.random() < 0.0025)
+        {
+            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+            addObject(new AcidRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
     }
 }
