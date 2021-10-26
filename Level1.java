@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level1 extends World
 {
     private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final GreenfootSound MUSIC = new GreenfootSound("Background Music.wav");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 6f;
     private final int MAX_HEALTH = 3;
@@ -41,19 +41,18 @@ public class Level1 extends World
               Door.class, HUD.class);
               
         Door door = new Door();
-        addObject(door,1171,44);
+        addObject(door,760,44);
         Player player = new Player(SPEED, JUMP_FORCE, GRAVITY, 
                                    MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
-        addObject(player,46,578);
+        addObject(player,46,760);
         addObject(new Floor(), 600, 800);
-        addObject(new BrickWall(), 300, 500);
+        addObject(new BrickWall(), 400, 500);
         addObject(new BrickWall(), 500, 300);
-        addObject(new BrickWall(), 960, 100);
+        addObject(new BrickWall(), 700, 100);
         addObject(new SmBrickWall(), 900, 600);
         addObject(new SmBrickWall(), 880, 600);
         addObject(new SmBrickWall(), 1000, 450);
-        addObject(new TrapDoor(), 1000, 600);
-        addObject(new Bomb(GRAVITY), 1050, 765);
+        addObject(new Bomb(GRAVITY), 1030, 410);
     }
     
          private void spawn()
